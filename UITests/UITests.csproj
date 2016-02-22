@@ -1,0 +1,890 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{870A4366-288E-4412-822A-AFBD803FB7B2}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>UITests</RootNamespace>
+    <AssemblyName>UITests</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <ProjectTypeGuids>{3AC096D0-A1C2-E12C-1390-A8335801FDAB};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
+    <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
+    <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
+    <ReferencePath>$(ProgramFiles)\Common Files\microsoft shared\VSTT\$(VisualStudioVersion)\UITestExtensionPackages</ReferencePath>
+    <IsCodedUITest>False</IsCodedUITest>
+    <TestProjectType>UnitTest</TestProjectType>
+    <SolutionDir Condition="$(SolutionDir) == '' Or $(SolutionDir) == '*Undefined*'">..\</SolutionDir>
+    <RestorePackages>true</RestorePackages>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Core, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\Core.dll.2.0.28\lib\Core.dll</HintPath>
+    </Reference>
+    <Reference Include="log4net, Version=1.2.13.0, Culture=neutral, PublicKeyToken=669e0ddf0bb1aa2a, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\Core.dll.2.0.28\lib\log4net.dll</HintPath>
+    </Reference>
+    <Reference Include="nunit.core">
+      <HintPath>..\packages\NUnitTestAdapter.2.0.0\lib\nunit.core.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="nunit.core.interfaces">
+      <HintPath>..\packages\NUnitTestAdapter.2.0.0\lib\nunit.core.interfaces.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="nunit.framework, Version=3.0.5797.27534, Culture=neutral, PublicKeyToken=2638cd05610744eb, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\Core.dll.2.0.28\lib\nunit.framework.dll</HintPath>
+    </Reference>
+    <Reference Include="nunit.util">
+      <HintPath>..\packages\NUnitTestAdapter.2.0.0\lib\nunit.util.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="NUnit.VisualStudio.TestAdapter">
+      <HintPath>..\packages\NUnitTestAdapter.2.0.0\lib\NUnit.VisualStudio.TestAdapter.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="Protractor, Version=0.6.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\Core.dll.2.0.28\lib\Protractor.dll</HintPath>
+    </Reference>
+    <Reference Include="Selenium.WebDriver.Extensions, Version=2.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\Core.dll.2.0.28\lib\Selenium.WebDriver.Extensions.dll</HintPath>
+    </Reference>
+    <Reference Include="Selenium.WebDriver.Extensions.Core, Version=1.7.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\Core.dll.2.0.28\lib\Selenium.WebDriver.Extensions.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="Selenium.WebDriver.Extensions.JQuery, Version=1.7.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\Core.dll.2.0.28\lib\Selenium.WebDriver.Extensions.JQuery.dll</HintPath>
+    </Reference>
+    <Reference Include="Selenium.WebDriver.Extensions.Sizzle, Version=1.7.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\Core.dll.2.0.28\lib\Selenium.WebDriver.Extensions.Sizzle.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="WebDriver, Version=2.48.2.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\Core.dll.2.0.28\lib\WebDriver.dll</HintPath>
+    </Reference>
+    <Reference Include="WebDriver.Support, Version=2.48.2.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\Core.dll.2.0.28\lib\WebDriver.Support.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <Choose>
+    <When Condition="('$(VisualStudioVersion)' == '10.0' or '$(VisualStudioVersion)' == '') and '$(TargetFrameworkVersion)' == 'v3.5'">
+      <ItemGroup>
+        <Reference Include="Microsoft.VisualStudio.QualityTools.UnitTestFramework, Version=10.1.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL" />
+      </ItemGroup>
+    </When>
+    <Otherwise />
+  </Choose>
+  <ItemGroup>
+    <Compile Include="Data\Assess\ItemCentral\ItemCentralResource.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ItemCentralResource.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Data\Assess\ItemCreateEdit\GriddedItemResource.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>GriddedItemResource.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Data\Assess\ItemCreateEdit\ItemStatisticsResource.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ItemStatisticsResource.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Data\Assess\ItemCreateEdit\ManualQAItemPropertiesResource.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ManualQAItemPropertiesResource.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Data\Assess\ItemCreateEdit\MatchingItemResource.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>MatchingItemResource.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Data\Assess\ItemCreateEdit\MultipleChoiceItemResource.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>MultipleChoiceItemResource.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Data\Assess\ItemCreateEdit\ItemPropertiesResource.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ItemPropertiesResource.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Data\Assess\ItemCreateEdit\OpenResponseItemResource.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>OpenResponseItemResource.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Data\Assess\ItemCreateEdit\TrueFalseItemResource.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>TrueFalseItemResource.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Data\Assess\Passage\ManualQAPassageResource.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ManualQAPassageResource.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Data\Assess\Passage\PassageResource.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>PassageResource.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Data\Assess\Rubric\RubricResource.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>RubricResource.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Data\Assess\Schedule\EditAssignmentCourseResource.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>EditAssignmentCourseResource.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Data\Assess\Standards\SelectedStandardsGroupResource.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>SelectedStandardsGroupResource.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Data\Assess\Standards\StandardPickerDataStructures.cs" />
+    <Compile Include="Data\Assess\Standards\StandardPickerResource.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>StandardPickerResource.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Data\Assess\TestCreateEdit\CreateTestResource.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>CreateTestResource.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Data\Assess\Dashboard\ProfileHomeResource.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ProfileHomeResource.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Data\Assess\TestCreateEdit\ManualQACreateTestResource.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ManualQACreateTestResource.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Data\Login\AuthenticationResource.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>AuthenticationResource.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Framework\ApplicationName.cs" />
+    <Compile Include="Framework\SchoolNet.cs" />
+    <Compile Include="Framework\SchoolNetMTWeb.cs" />
+    <Compile Include="Framework\SchoolNetSTWeb.cs" />
+    <Compile Include="Framework\TestRunner.cs" />
+    <Compile Include="Framework\TestThread.cs" />
+    <Compile Include="Pages\Admin\AssessAdminSettings\BenchmarkScoreGroupsPage.cs" />
+    <Compile Include="Pages\Admin\AssessAdminSettings\CMSItemSharingPage.cs" />
+    <Compile Include="Pages\Admin\AssessAdminSettings\Components\AssessAdminSettingsTab.cs" />
+    <Compile Include="Pages\Admin\AssessAdminSettings\CountsPage.cs" />
+    <Compile Include="Pages\Admin\AssessAdminSettings\CustomDescriptionPage.cs" />
+    <Compile Include="Pages\Admin\AssessAdminSettings\DataCollectionAndMonitoringPage.cs" />
+    <Compile Include="Pages\Admin\AssessAdminSettings\ItemPropertiesPage.cs" />
+    <Compile Include="Pages\Admin\AssessAdminSettings\ItemProperties\ItemPropertiesForm.cs" />
+    <Compile Include="Pages\Admin\AssessAdminSettings\ItemProperties\LanguageProperties.cs" />
+    <Compile Include="Pages\Admin\AssessAdminSettings\OnlineTestingPage.cs" />
+    <Compile Include="Pages\Admin\AssessAdminSettings\OnlineTesting\IPFilteringColumn.cs" />
+    <Compile Include="Pages\Admin\AssessAdminSettings\OnlineTesting\IPFilteringColumnNames.cs" />
+    <Compile Include="Pages\Admin\AssessAdminSettings\OnlineTesting\IPFilteringForm.cs" />
+    <Compile Include="Pages\Admin\AssessAdminSettings\OnlineTesting\IPFilteringGrid.cs" />
+    <Compile Include="Pages\Admin\AssessAdminSettings\OnlineTesting\IPFilteringRow.cs" />
+    <Compile Include="Pages\Admin\AssessAdminSettings\OnlineTesting\OnlineTestingData.cs" />
+    <Compile Include="Pages\Admin\AssessAdminSettings\OnlineTesting\OnlineTestingForm.cs" />
+    <Compile Include="Pages\Admin\AssessAdminSettings\QTIImportPage.cs" />
+    <Compile Include="Pages\Admin\AssessAdminSettings\ScanItFormDefinitionsPage.cs" />
+    <Compile Include="Pages\Admin\AssessAdminSettings\TestingSubjectsPage.cs" />
+    <Compile Include="Pages\Admin\AssessAdminSettings\TestPropertiesPage.cs" />
+    <Compile Include="Pages\Admin\AssessAdminSettings\TestProperties\TestPropertiesData.cs" />
+    <Compile Include="Pages\Admin\AssessAdminSettings\TestProperties\TestPropertiesForm.cs" />
+    <Compile Include="Pages\Admin\SystemOperation\SystemOperationDetail.cs" />
+    <Compile Include="Pages\Admin\GeneralSettings\APIMgmtPage.cs" />
+    <Compile Include="Pages\Admin\GeneralSettings\CachePage.cs" />
+    <Compile Include="Pages\Admin\GeneralSettings\Cache\CacheData.cs" />
+    <Compile Include="Pages\Admin\GeneralSettings\Cache\CacheForm.cs" />
+    <Compile Include="Pages\Admin\GeneralSettings\Components\GeneralSettingsTab.cs" />
+    <Compile Include="Pages\Admin\GeneralSettings\ConfigPage.cs" />
+    <Compile Include="Pages\Admin\GeneralSettings\ConfigureLinkDisplayPage.cs" />
+    <Compile Include="Pages\Admin\GeneralSettings\Config\ConfigColumn.cs" />
+    <Compile Include="Pages\Admin\GeneralSettings\Config\ConfigColumnnNames.cs" />
+    <Compile Include="Pages\Admin\GeneralSettings\Config\ConfigForm.cs" />
+    <Compile Include="Pages\Admin\GeneralSettings\Config\ConfigGrid.cs" />
+    <Compile Include="Pages\Admin\GeneralSettings\Config\ConfigData.cs" />
+    <Compile Include="Pages\Admin\GeneralSettings\Config\ConfigRow.cs" />
+    <Compile Include="Pages\Admin\GeneralSettings\ContactUsPage.cs" />
+    <Compile Include="Pages\Admin\GeneralSettings\DesignPage.cs" />
+    <Compile Include="Pages\Admin\GeneralSettings\EventLogPage.cs" />
+    <Compile Include="Pages\Admin\GeneralSettings\InstitutionsPage.cs" />
+    <Compile Include="Pages\Admin\GeneralSettings\MobilePage.cs" />
+    <Compile Include="Pages\Admin\GeneralSettings\ScheduledTasksPage.cs" />
+    <Compile Include="Pages\Admin\GeneralSettings\ScoreTypePage.cs" />
+    <Compile Include="Pages\Admin\GeneralSettings\StandardsPage.cs" />
+    <Compile Include="Pages\Admin\GeneralSettings\StudentProfilePage.cs" />
+    <Compile Include="Pages\Admin\GeneralSettings\StudentProfile\AttendanceGroupColumn.cs" />
+    <Compile Include="Pages\Admin\GeneralSettings\StudentProfile\AttendanceGroupColumnNames.cs" />
+    <Compile Include="Pages\Admin\GeneralSettings\StudentProfile\AttendanceGroupGrid.cs" />
+    <Compile Include="Pages\Admin\GeneralSettings\StudentProfile\AttendanceGroupRow.cs" />
+    <Compile Include="Pages\Admin\GeneralSettings\StudentProfile\StudentProfileData.cs" />
+    <Compile Include="Pages\Admin\GeneralSettings\StudentProfile\StudentProfileForm.cs" />
+    <Compile Include="Pages\Admin\GeneralSettings\SubjectsPage.cs" />
+    <Compile Include="Pages\Admin\GeneralSettings\TabsPage.cs" />
+    <Compile Include="Pages\Admin\SystemOperationPage.cs" />
+    <Compile Include="Pages\SchoolAndDistrict\Dashboard\BenchmarkTests\BenchmarkTestsDashboardTab.cs" />
+    <Compile Include="Pages\SchoolAndDistrict\Dashboard\Components\DashboardData.cs" />
+    <Compile Include="Pages\SchoolAndDistrict\Dashboard\Components\DashboardTabs.cs" />
+    <Compile Include="Pages\SchoolAndDistrict\Dashboard\KPI\KPIGoalsConfigure.cs" />
+    <Compile Include="Pages\SchoolAndDistrict\Dashboard\KPI\KeyKPIDashboardTabDetail.cs" />
+    <Compile Include="Pages\SchoolAndDistrict\Dashboard\KPI\KeyKPIDashboardTabForm.cs" />
+    <Compile Include="Pages\SchoolAndDistrict\Dashboard\KPI\KeyKPIDashboardTab.cs" />
+    <Compile Include="Pages\SchoolAndDistrict\Dashboard\KPI\KeyKPIDashboardTabData.cs" />
+    <Compile Include="Pages\SchoolAndDistrict\Dashboard\KPI\KPIDashboardTab.cs" />
+    <Compile Include="Pages\SchoolAndDistrict\Dashboard\KPI\KPIDashboardTabData.cs" />
+    <Compile Include="Pages\SchoolAndDistrict\Dashboard\KPI\KPIDashboardTabDetail.cs" />
+    <Compile Include="Pages\SchoolAndDistrict\Dashboard\KPI\KPIDashboardTabForm.cs" />
+    <Compile Include="Pages\SchoolAndDistrict\Dashboard\KPI\KPIGoalsConfigureDetail.cs" />
+    <Compile Include="Pages\SchoolAndDistrict\Dashboard\KPI\KPIGoalsConfigureForm.cs" />
+    <Compile Include="Pages\SchoolAndDistrict\Dashboard\ReportBank\ReportBankDashboardTab.cs" />
+    <Compile Include="Pages\SchoolAndDistrict\Student\StudentDetailPage.cs" />
+    <Compile Include="Pages\SchoolAndDistrict\Student\StudentDetail\BenchmarkTests\BenchmarkELAColumn.cs" />
+    <Compile Include="Pages\SchoolAndDistrict\Student\StudentDetail\BenchmarkTests\BenchmarkELAColumnNames.cs" />
+    <Compile Include="Pages\SchoolAndDistrict\Student\StudentDetail\BenchmarkTests\BenchmarkELAGrid.cs" />
+    <Compile Include="Pages\SchoolAndDistrict\Student\StudentDetail\BenchmarkTests\BenchmarkELARow.cs" />
+    <Compile Include="Pages\SchoolAndDistrict\Student\StudentDetail\BenchmarkTests\BenchmarkTestsTab.cs" />
+    <Compile Include="Pages\SchoolAndDistrict\Student\StudentDetail\BenchmarkTests\AllTests\BenchmarkTestsTabAllTestsView.cs" />
+    <Compile Include="Pages\SchoolAndDistrict\Student\StudentDetail\BenchmarkTests\AllTests\BenchmarkTestsTabAllTestsViewData.cs" />
+    <Compile Include="Pages\SchoolAndDistrict\Student\StudentDetail\BenchmarkTests\AllTests\BenchmarkTestsTabAllTestsViewDetail.cs" />
+    <Compile Include="Pages\SchoolAndDistrict\Student\StudentDetail\BenchmarkTests\AllTests\BenchmarkTestsTabAllTestsViewForm.cs" />
+    <Compile Include="Pages\SchoolAndDistrict\Student\StudentDetail\BenchmarkTests\AllTests\BenchmarkTestsTabAllTestsViewGridNames.cs" />
+    <Compile Include="Pages\SchoolAndDistrict\Student\StudentDetail\BenchmarkTests\ItemResponse\BenchmarkTestsTabItemResponseView.cs" />
+    <Compile Include="Pages\SchoolAndDistrict\Student\StudentDetail\BenchmarkTests\ItemResponse\BenchmarkTestsTabItemResponseViewData.cs" />
+    <Compile Include="Pages\SchoolAndDistrict\Student\StudentDetail\BenchmarkTests\ItemResponse\BenchmarkTestsTabItemResponseViewDetail.cs" />
+    <Compile Include="Pages\SchoolAndDistrict\Student\StudentDetail\BenchmarkTests\OneTest\BenchmarkTestsTabOneTestView.cs" />
+    <Compile Include="Pages\SchoolAndDistrict\Student\StudentDetail\BenchmarkTests\OneTest\BenchmarkTestsTabOneTestViewColumn.cs" />
+    <Compile Include="Pages\SchoolAndDistrict\Student\StudentDetail\BenchmarkTests\OneTest\BenchmarkTestsTabOneTestViewColumnNames.cs" />
+    <Compile Include="Pages\SchoolAndDistrict\Student\StudentDetail\BenchmarkTests\OneTest\BenchmarkTestsTabOneTestViewData.cs" />
+    <Compile Include="Pages\SchoolAndDistrict\Student\StudentDetail\BenchmarkTests\OneTest\BenchmarkTestsTabOneTestViewForm.cs" />
+    <Compile Include="Pages\SchoolAndDistrict\Student\StudentDetail\BenchmarkTests\OneTest\BenchmarkTestsTabOneTestViewGrid.cs" />
+    <Compile Include="Pages\SchoolAndDistrict\Student\StudentDetail\BenchmarkTests\OneTest\BenchmarkTestsTabOneTestViewRow.cs" />
+    <Compile Include="Pages\SchoolAndDistrict\Student\StudentDetail\StudentDetailData.cs" />
+    <Compile Include="Pages\SchoolAndDistrict\Student\StudentDetail\StudentDetailDetail.cs" />
+    <Compile Include="Pages\SchoolAndDistrict\Student\StudentDetail\StudentDetailForm.cs" />
+    <Compile Include="Pages\SchoolAndDistrict\Student\StudentDetail\StudentDetailTabs.cs" />
+    <Compile Include="Pages\SchoolAndDistrict\Student\StudentDetail\StudentOverview\StudentOverviewTab.cs" />
+    <Compile Include="Tests\DataSetup\CreateAssessmentsIterativeTest.cs" />
+    <Compile Include="Tests\DataSetup\CreateAssessmentsTest.cs" />
+    <Compile Include="Tests\DataSetup\CreateItemsTest.cs" />
+    <Compile Include="Tests\DataSetup\CreatePassagesTest.cs" />
+    <Compile Include="Tests\DataSetup\CreateTestAndItemCentralParameters.cs" />
+    <Compile Include="Tests\DataSetup\ManualQA\CreateManualAssessmentsTest.cs" />
+    <Compile Include="Workflow\Admin\AdminWorkflows.cs" />
+    <Compile Include="Workflow\Admin\AssessAdminSettingsWorkflows.cs" />
+    <Compile Include="Workflow\Admin\GeneralSettingsWorkflows.cs" />
+    <Compile Include="Pages\Assess\Components\AnswerChoiceLayout.cs" />
+    <Compile Include="Pages\Assess\Components\AssessLinks.cs" />
+    <Compile Include="Pages\Assess\Components\ContentLineItem.cs" />
+    <Compile Include="Pages\Assess\Components\EnableTextFormatting.cs" />
+    <Compile Include="Pages\Assess\Components\EnableToolsManipulatives.cs" />
+    <Compile Include="Pages\Assess\Components\ItemPropertiesFields.cs" />
+    <Compile Include="Pages\Assess\Components\ItemPropertiesForm.cs" />
+    <Compile Include="Pages\Assess\Components\ItemStatisticsData.cs" />
+    <Compile Include="Pages\Assess\Components\ItemStatisticsForm.cs" />
+    <Compile Include="Pages\Assess\Components\ItemTypeControl.cs" />
+    <Compile Include="Pages\Assess\Components\PassagePropertiesData.cs" />
+    <Compile Include="Pages\Assess\Components\PassagePropertiesForm.cs" />
+    <Compile Include="Pages\Assess\Components\ShareWithOtherUser.cs" />
+    <Compile Include="Pages\Assess\Components\SharingItemData.cs" />
+    <Compile Include="Pages\Assess\ItemCentral\RubricCentralPage.cs" />
+    <Compile Include="Pages\Assess\Standards\SelectedStandardsGroupLineItem.cs" />
+    <Compile Include="Pages\Assess\Standards\StandardControlsForm.cs" />
+    <Compile Include="Pages\Assess\Standards\SelectedStandardsAvailableLineItem.cs" />
+    <Compile Include="Pages\Assess\Standards\StandardPickerForm.cs" />
+    <Compile Include="Pages\Assess\Standards\StandardPopupDialog.cs" />
+    <Compile Include="Pages\Assess\Components\TeacherInstruction.cs" />
+    <Compile Include="Pages\Assess\Components\TestStage.cs" />
+    <Compile Include="Pages\Assess\Components\TestStages.cs" />
+    <Compile Include="Pages\Assess\Dashboard\ProfileHome\ProfileHomeGridNames.cs" />
+    <Compile Include="Pages\Assess\Dashboard\ProfileHome\InProgressTests\ProfileHomeInProgressTestsColumn.cs" />
+    <Compile Include="Pages\Assess\Dashboard\ProfileHome\InProgressTests\ProfileHomeInProgressTestsColumnNames.cs" />
+    <Compile Include="Pages\Assess\Dashboard\ProfileHome\InProgressTests\ProfileHomeInProgressTestsGrid.cs" />
+    <Compile Include="Pages\Assess\Dashboard\ProfileHome\InProgressTests\ProfileHomeInProgressTestsRow.cs" />
+    <Compile Include="Pages\Assess\Dashboard\ProfileHome\MyTests\ProfileHomeMyTestsColumn.cs" />
+    <Compile Include="Pages\Assess\Dashboard\ProfileHome\MyTests\ProfileHomeMyTestsColumnNames.cs" />
+    <Compile Include="Pages\Assess\Dashboard\ProfileHome\MyTests\ProfileHomeMyTestsGrid.cs" />
+    <Compile Include="Pages\Assess\Dashboard\ProfileHome\MyTests\ProfileHomeMyTestsRow.cs" />
+    <Compile Include="Pages\Assess\Dashboard\ProfileHome\Tabs\ProfileHomeTabColumn.cs" />
+    <Compile Include="Pages\Assess\Dashboard\ProfileHome\Tabs\ProfileHomeTabColumnNames.cs" />
+    <Compile Include="Pages\Assess\Dashboard\ProfileHome\Tabs\ProfileHomeTabDetail.cs" />
+    <Compile Include="Pages\Assess\Dashboard\ProfileHome\Tabs\ProfileHomeTabGrid.cs" />
+    <Compile Include="Pages\Assess\Dashboard\ProfileHome\Tabs\ProfileHomeTabRow.cs" />
+    <Compile Include="Pages\Assess\Dashboard\ProfileHome\Tabs\ProfileHomeTabSearchData.cs" />
+    <Compile Include="Pages\Assess\Dashboard\ProfileHome\Tabs\ProfileHomeTabSearchForm.cs" />
+    <Compile Include="Pages\Assess\Dashboard\ProfileHome\RecommendedTests\ProfileHomeRecommendedTestsColumn.cs" />
+    <Compile Include="Pages\Assess\Dashboard\ProfileHome\RecommendedTests\ProfileHomeRecommendedTestsColumnNames.cs" />
+    <Compile Include="Pages\Assess\Dashboard\ProfileHome\RecommendedTests\ProfileHomeRecommendedTestsGrid.cs" />
+    <Compile Include="Pages\Assess\Dashboard\ProfileHome\RecommendedTests\ProfileHomeRecommendedTestsRow.cs" />
+    <Compile Include="Pages\Assess\Dashboard\ProfileHome\ScheduledTests\ProfileHomeScheduledTestsColumn.cs" />
+    <Compile Include="Pages\Assess\Dashboard\ProfileHome\ScheduledTests\ProfileHomeScheduledTestsColumnNames.cs" />
+    <Compile Include="Pages\Assess\Dashboard\ProfileHome\ScheduledTests\ProfileHomeScheduledTestsGrid.cs" />
+    <Compile Include="Pages\Assess\Dashboard\ProfileHome\ScheduledTests\ProfileHomeScheduledTestsRow.cs" />
+    <Compile Include="Pages\Assess\Dashboard\ProfileHome\Tabs\ProfileHomeTabNames.cs" />
+    <Compile Include="Pages\Assess\Dashboard\ProfileHome\UpComingTestWindows\ProfileHomeUpComingTestWindowsColumn.cs" />
+    <Compile Include="Pages\Assess\Dashboard\ProfileHome\UpComingTestWindows\ProfileHomeUpComingTestWindowsColumnNames.cs" />
+    <Compile Include="Pages\Assess\Dashboard\ProfileHome\UpComingTestWindows\ProfileHomeUpComingTestWindowsGrid.cs" />
+    <Compile Include="Pages\Assess\Dashboard\ProfileHome\UpComingTestWindows\ProfileHomeUpComingTestWindowsRow.cs" />
+    <Compile Include="Pages\Assess\Dashboard\ViewPortalResults\InProgressTests\ViewPortalInProgressTestResultsColumn.cs" />
+    <Compile Include="Pages\Assess\Dashboard\ViewPortalResults\InProgressTests\ViewPortalInProgressTestResultsColumnNames.cs" />
+    <Compile Include="Pages\Assess\Dashboard\ViewPortalResults\InProgressTests\ViewPortalInProgressTestResultsGrid.cs" />
+    <Compile Include="Pages\Assess\Dashboard\ViewPortalResults\InProgressTests\ViewPortalInProgressTestResultsRow.cs" />
+    <Compile Include="Pages\Assess\Dashboard\ViewPortalResults\MyTests\ViewPortalMyTestResultsColumn.cs" />
+    <Compile Include="Pages\Assess\Dashboard\ViewPortalResults\MyTests\ViewPortalMyTestResultsColumnNames.cs" />
+    <Compile Include="Pages\Assess\Dashboard\ViewPortalResults\MyTests\ViewPortalMyTestResultsGrid.cs" />
+    <Compile Include="Pages\Assess\Dashboard\ViewPortalResults\MyTests\ViewPortalMyTestResultsRow.cs" />
+    <Compile Include="Pages\Assess\Dashboard\ViewPortalResults\RecommendedTests\ViewPortalRecommendedTestResultsColumn.cs" />
+    <Compile Include="Pages\Assess\Dashboard\ViewPortalResults\RecommendedTests\ViewPortalRecommendedTestResultsColumnNames.cs" />
+    <Compile Include="Pages\Assess\Dashboard\ViewPortalResults\RecommendedTests\ViewPortalRecommendedTestResultsGrid.cs" />
+    <Compile Include="Pages\Assess\Dashboard\ViewPortalResults\RecommendedTests\ViewPortalRecommendedTestResultsRow.cs" />
+    <Compile Include="Pages\Assess\Dashboard\ViewPortalResults\ViewPortalResultsGridNames.cs" />
+    <Compile Include="Pages\Assess\Dashboard\ViewPortalResultsPage.cs" />
+    <Compile Include="Pages\Assess\Dashboard\ViewPortalResults\ViewPortalResultsSearchFields.cs" />
+    <Compile Include="Pages\Assess\Dashboard\ViewPortalResults\ScheduledTests\ViewPortalScheduledTestResultsColumn.cs" />
+    <Compile Include="Pages\Assess\Dashboard\ViewPortalResults\ScheduledTests\ViewPortalScheduledTestResultsColumnNames.cs" />
+    <Compile Include="Pages\Assess\Dashboard\ViewPortalResults\ScheduledTests\ViewPortalScheduledTestResultsGrid.cs" />
+    <Compile Include="Pages\Assess\Dashboard\ViewPortalResults\ScheduledTests\ViewPortalScheduledTestResultsRow.cs" />
+    <Compile Include="Pages\Assess\Dashboard\ProfileHome\ProfileHomeData.cs" />
+    <Compile Include="Pages\Assess\Dashboard\ProfileHome\ProfileHomeDetail.cs" />
+    <Compile Include="Pages\Assess\Dashboard\ProfileHome\ProfileHomeForm.cs" />
+    <Compile Include="Pages\Assess\Dashboard\ProfileHome\ProfileHomeGridDetail.cs" />
+    <Compile Include="Pages\Assess\Dashboard\ProfileHomePage.cs" />
+    <Compile Include="Pages\Assess\Dashboard\TeacherProfileHome\TeacherProfileHomeData.cs" />
+    <Compile Include="Pages\Assess\Dashboard\TeacherProfileHome\TeacherProfileHomeDetail.cs" />
+    <Compile Include="Pages\Assess\Dashboard\TeacherProfileHomePage.cs" />
+    <Compile Include="Pages\Assess\Dashboard\ViewPortalResults\ViewPortalResultsData.cs" />
+    <Compile Include="Pages\Assess\Dashboard\ViewPortalResults\ViewPortalResultsDetail.cs" />
+    <Compile Include="Pages\Assess\Dashboard\ViewPortalResults\ViewPortalResultsSearchForm.cs" />
+    <Compile Include="Pages\Assess\ItemCentral\ItemCentral\ItemCentralData.cs" />
+    <Compile Include="Pages\Assess\ItemCentral\ItemCentral\ItemCentralDetail.cs" />
+    <Compile Include="Pages\Assess\ItemCentral\ItemCentralHome\ItemCentralDetailTab.cs" />
+    <Compile Include="Pages\Assess\ItemCentral\ItemCentral\ItemCentralForm.cs" />
+    <Compile Include="Pages\Assess\ItemCentral\ItemCentralHome\ItemCentralFormTab.cs" />
+    <Compile Include="Pages\Assess\ItemCentral\ItemCentralHome\ItemCentralHomeData.cs" />
+    <Compile Include="Pages\Assess\ItemCentral\ItemCentralHome\ItemCentralHomeDetail.cs" />
+    <Compile Include="Pages\Assess\ItemCentral\ItemCentralHome\ItemCentralHomeForm.cs" />
+    <Compile Include="Pages\Assess\ItemCentral\ItemCentralSearchResults\ItemCentralSearchResultsData.cs" />
+    <Compile Include="Pages\Assess\ItemCentral\ItemCentralSearchResults\ItemCentralSearchResultsDetail.cs" />
+    <Compile Include="Pages\Assess\ItemCentral\ItemCentralSearchResults\ItemCentralSearchResultsForm.cs" />
+    <Compile Include="Pages\Assess\ItemCentral\ItemCentralStandardPicker\ItemCentralStandardPickerForm.cs" />
+    <Compile Include="Pages\Assess\ItemCentral\ItemCentralHome\Items\ItemCentralItemsDetailTab.cs" />
+    <Compile Include="Pages\Assess\ItemCentral\ItemCentralSearchResults\ItemCentralLineItem.cs" />
+    <Compile Include="Pages\Assess\ItemCentral\ItemCentralSearchResults\ItemCentralLineItemFields.cs" />
+    <Compile Include="Pages\Assess\ItemCentral\ItemCentralHome\Passage\ItemCentralPassagesDetailTab.cs" />
+    <Compile Include="Pages\Assess\ItemCentral\ItemCentralHome\Passage\ItemCentralPassagesGradeFormTab.cs" />
+    <Compile Include="Pages\Assess\ItemCentral\ItemCentralHome\Passage\ItemCentralPassagesSubjectFormTab.cs" />
+    <Compile Include="Pages\Assess\ItemCentral\ItemCentralHome\Rubric\ItemCentralRubricsDetailTab.cs" />
+    <Compile Include="Pages\Assess\ItemCentral\ItemCentralHomePage.cs" />
+    <Compile Include="Pages\Assess\ItemCentral\ItemCentralPage.cs" />
+    <Compile Include="Pages\Assess\ItemCentral\ItemCentralSearchResultsPage.cs" />
+    <Compile Include="Pages\Assess\ItemCentral\ItemCentralStandardPickerPage.cs" />
+    <Compile Include="Pages\Assess\Components\AddActivity.cs" />
+    <Compile Include="Pages\Assess\ItemCreateEdit\v01\EditItemAvailability\EditItemAvailabilityData.cs" />
+    <Compile Include="Pages\Assess\ItemCreateEdit\v01\EditItemAvailability\EditItemAvailabilityForm.cs" />
+    <Compile Include="Pages\Assess\ItemCreateEdit\v01\EditQuestion\EditQuestionChooseNewItemDetail.cs" />
+    <Compile Include="Pages\Assess\ItemCreateEdit\v01\EditQuestion\EditQuestionChooseNewItemForm.cs" />
+    <Compile Include="Pages\Assess\ItemCreateEdit\v01\EditQuestion\EditQuestionCreateNewItemDetail.cs" />
+    <Compile Include="Pages\Assess\ItemCreateEdit\v01\EditQuestion\EditQuestionCreateNewItemForm.cs" />
+    <Compile Include="Pages\Assess\ItemCreateEdit\v01\EditTestItem\EditTestItemChooseNewItemDetail.cs" />
+    <Compile Include="Pages\Assess\ItemCreateEdit\v01\EditTestItem\EditTestItemCreateNewItemForm.cs" />
+    <Compile Include="Pages\Assess\ItemCreateEdit\v01\ItemForms\ItemTypeDragDropForm.cs" />
+    <Compile Include="Pages\Assess\ItemCreateEdit\v01\ItemForms\ItemTypeDragDropFields.cs" />
+    <Compile Include="Pages\Assess\ItemCreateEdit\v01\ItemForms\ItemTypeMatchingForm.cs" />
+    <Compile Include="Pages\Assess\ItemCreateEdit\v01\ItemForms\ItemTypeMultipleChoiceForm.cs" />
+    <Compile Include="Pages\Assess\ItemCreateEdit\v01\ItemForms\ItemTypeTrueFalseForm.cs" />
+    <Compile Include="Pages\Assess\ItemCreateEdit\v01\ItemForms\ItemTypeGriddedForm.cs" />
+    <Compile Include="Pages\Assess\ItemCreateEdit\v01\ItemForms\ItemTypeHotSpotSingleForm.cs" />
+    <Compile Include="Pages\Assess\ItemCreateEdit\v01\ItemForms\ItemTypeOpenResponseFields.cs" />
+    <Compile Include="Pages\Assess\ItemCreateEdit\v01\ItemForms\ItemTypeOpenResponseForm.cs" />
+    <Compile Include="Pages\Assess\ItemCreateEdit\v01\ItemForms\ItemTypeTaskForm.cs" />
+    <Compile Include="Pages\Assess\ItemCreateEdit\v01\ItemParts\AnswerChoice.cs" />
+    <Compile Include="Pages\Assess\ItemCreateEdit\v01\ItemParts\AttachRubric.cs" />
+    <Compile Include="Pages\Assess\ItemCreateEdit\v01\ItemParts\AttachRubricDialog.cs" />
+    <Compile Include="Pages\Assess\ItemCreateEdit\v01\ItemParts\AttachRubricDialogData.cs" />
+    <Compile Include="Pages\Assess\ItemCreateEdit\v01\Components\CoAuthor.cs" />
+    <Compile Include="Pages\Assess\ItemCreateEdit\v01\Components\EditPageData.cs" />
+    <Compile Include="Pages\Assess\ItemCreateEdit\v01\EditTask\EditTaskDetail.cs" />
+    <Compile Include="Pages\Assess\ItemCreateEdit\v01\EditTask\EditTaskForm.cs" />
+    <Compile Include="Pages\Assess\ItemCreateEdit\v01\ItemParts\AnswerLineItem.cs" />
+    <Compile Include="Pages\Assess\ItemCreateEdit\v01\ItemParts\ItemContentLineItem.cs" />
+    <Compile Include="Pages\Assess\ItemCreateEdit\v01\ItemForms\ItemTypeData.cs" />
+    <Compile Include="Pages\Assess\ItemCreateEdit\v01\ItemForms\ItemTypeForm.cs" />
+    <Compile Include="Pages\Assess\ItemCreateEdit\v01\ItemForms\ItemTypeInlineResponseForm.cs" />
+    <Compile Include="Pages\Assess\ItemCreateEdit\v01\ItemForms\ItemTypeTabForm.cs" />
+    <Compile Include="Pages\Assess\ItemCreateEdit\v01\ItemParts\AttachRubricDialogDetail.cs" />
+    <Compile Include="Pages\Assess\ItemCreateEdit\v01\ItemParts\AttachRubricDialogForm.cs" />
+    <Compile Include="Pages\Assess\ItemCreateEdit\v01\ItemParts\AttachRubricLineItem.cs" />
+    <Compile Include="Pages\Assess\ItemCreateEdit\v01\ItemParts\AttachRubricPointsLineItem.cs" />
+    <Compile Include="Pages\Assess\ItemCreateEdit\v01\ItemParts\ChooseAnItemType.cs" />
+    <Compile Include="Pages\Assess\ItemCreateEdit\v01\ItemParts\MatchingPair.cs" />
+    <Compile Include="Pages\Assess\ItemCreateEdit\v01\ViewItemStatistics\ViewItemStatisticsColumn.cs" />
+    <Compile Include="Pages\Assess\ItemCreateEdit\v01\ViewItemStatistics\ViewItemStatisticsColumnNames.cs" />
+    <Compile Include="Pages\Assess\ItemCreateEdit\v01\ViewItemStatistics\ViewItemStatisticsGrid.cs" />
+    <Compile Include="Pages\Assess\ItemCreateEdit\v01\ViewItemStatistics\ViewItemStatisticsRow.cs" />
+    <Compile Include="Pages\Assess\ItemCreateEdit\v01\Components\PaginationActivities.cs" />
+    <Compile Include="Pages\Assess\ItemCreateEdit\v01\ItemParts\QuestionAnswerContent.cs" />
+    <Compile Include="Pages\Assess\ItemCreateEdit\v01\ItemParts\QuestionAnswerPair.cs" />
+    <Compile Include="Pages\Assess\ItemCreateEdit\v01\ItemParts\StudentTeacherExplanation.cs" />
+    <Compile Include="Pages\Assess\ItemCreateEdit\v01\Components\RibbonBarItem.cs" />
+    <Compile Include="Pages\Assess\ItemCreateEdit\v01\Components\RibbonBarItemState.cs" />
+    <Compile Include="Pages\Assess\ItemCreateEdit\v01\ViewItemStatistics\ViewItemStatisticsDetail.cs" />
+    <Compile Include="Pages\Assess\ItemCreateEdit\v01\EditItemAvailabilityPage.cs" />
+    <Compile Include="Pages\Assess\ItemCreateEdit\v01\EditPageBase.cs" />
+    <Compile Include="Pages\Assess\ItemCreateEdit\v01\EditQuestionChooseNewItemPage.cs" />
+    <Compile Include="Pages\Assess\ItemCreateEdit\v01\EditQuestionCreateNewItemPage.cs" />
+    <Compile Include="Pages\Assess\ItemCreateEdit\v01\EditQuestionPage.cs" />
+    <Compile Include="Pages\Assess\ItemCreateEdit\v01\EditTaskPage.cs" />
+    <Compile Include="Pages\Assess\ItemCreateEdit\v01\EditTestItemChooseNewItemPage.cs" />
+    <Compile Include="Pages\Assess\ItemCreateEdit\v01\EditTestItemCreateNewItemPage.cs" />
+    <Compile Include="Pages\Assess\ItemCreateEdit\v01\EditTestItemPage.cs" />
+    <Compile Include="Pages\Assess\ItemCreateEdit\v01\ViewItemStatisticsPage.cs" />
+    <Compile Include="Pages\Assess\TestTunnel\TestAccessPage.cs" />
+    <Compile Include="Pages\Assess\TestTunnel\TestAccess\TestAccessData.cs" />
+    <Compile Include="Pages\Assess\TestTunnel\TestAccess\TestAccessForm.cs" />
+    <Compile Include="Pages\Assess\TestTunnel\TestAccess\TestAccessHeader.cs" />
+    <Compile Include="Pages\Assess\TestTunnel\TestForms\TestTypeTrueFalseForm.cs" />
+    <Compile Include="Pages\Assess\TestTunnel\Default\DefaultFooter.cs" />
+    <Compile Include="Pages\Assess\TestTunnel\Default\DefaultForm.cs" />
+    <Compile Include="Pages\Assess\TestTunnel\Default\DefaultHeader.cs" />
+    <Compile Include="Pages\Assess\TestTunnel\Default\DefaultInstructionsDetail.cs" />
+    <Compile Include="Pages\Assess\TestTunnel\Default\DefaultResponseSummaryForm.cs" />
+    <Compile Include="Pages\Assess\TestTunnel\Default\DefaultData.cs" />
+    <Compile Include="Pages\Assess\TestTunnel\LoginPage.cs" />
+    <Compile Include="Pages\Assess\TestTunnel\Login\LoginData.cs" />
+    <Compile Include="Pages\Assess\TestTunnel\Login\LoginForm.cs" />
+    <Compile Include="Pages\Assess\TestTunnel\Login\LoginHeader.cs" />
+    <Compile Include="Pages\Components\IEnumerableExtensions.cs" />
+    <Compile Include="Pages\Components\MultipleChoiceLayout.cs" />
+    <Compile Include="Pages\Assess\TestTunnel\TestForms\TestTypeOpenResponseForm.cs" />
+    <Compile Include="Pages\Assess\TestTunnel\TestParts\TestItemStatus.cs" />
+    <Compile Include="Pages\Assess\TestTunnel\TestForms\TestTypeClickStickClickDropForm.cs" />
+    <Compile Include="Pages\Assess\TestTunnel\TestForms\TestTypeDragDropForm.cs" />
+    <Compile Include="Pages\Assess\TestTunnel\TestForms\TestTypeGriddedForm.cs" />
+    <Compile Include="Pages\Assess\TestTunnel\TestForms\TestTypeInlineResponseForm.cs" />
+    <Compile Include="Pages\Assess\TestTunnel\TestForms\TestTypeMatchingForm.cs" />
+    <Compile Include="Pages\Assess\TestTunnel\TestForms\TestTypeMultipleChoiceForm.cs" />
+    <Compile Include="Pages\Assess\TestTunnel\TestParts\AnswerChoices.cs" />
+    <Compile Include="Pages\Assess\TestTunnel\TestParts\AttachOpenResponseAnswerForm.cs" />
+    <Compile Include="Pages\Assess\TestTunnel\TestParts\AttachRecordingForm.cs" />
+    <Compile Include="Pages\Assess\TestTunnel\TestForms\TestTypeForm.cs" />
+    <Compile Include="Pages\Assess\TestTunnel\TestParts\AnswerGridColumn.cs" />
+    <Compile Include="Pages\Assess\TestTunnel\TestParts\AnswerGrids.cs" />
+    <Compile Include="Pages\Assess\TestTunnel\TestParts\AnswerLineItem.cs" />
+    <Compile Include="Pages\Assess\TestTunnel\TestParts\DraggableChoices.cs" />
+    <Compile Include="Pages\Assess\TestTunnel\TestParts\DraggableLineItem.cs" />
+    <Compile Include="Pages\Assess\TestTunnel\TestParts\DroppableChoices.cs" />
+    <Compile Include="Pages\Assess\TestTunnel\TestParts\DroppableLineItem.cs" />
+    <Compile Include="Pages\Assess\TestTunnel\TestParts\OpenResponseToolBar.cs" />
+    <Compile Include="Pages\Assess\TestTunnel\TestParts\OpenResponseToolBarLatin.cs" />
+    <Compile Include="Pages\Assess\TestTunnel\TestParts\Question.cs" />
+    <Compile Include="Pages\Assess\TestTunnel\TestParts\QuestionGap.cs" />
+    <Compile Include="Pages\Assess\TestTunnel\TestParts\QuestionLineItem.cs" />
+    <Compile Include="Pages\Assess\TestTunnel\TestParts\QuestionStems.cs" />
+    <Compile Include="Pages\Assess\TestTunnel\TestParts\TestTunnelDialog.cs" />
+    <Compile Include="Pages\Assess\TestTunnel\DefaultPage.cs" />
+    <Compile Include="Pages\Assess\Passage\EditPassage\EditPassageData.cs" />
+    <Compile Include="Pages\Assess\Passage\EditPassage\EditPassageForm.cs" />
+    <Compile Include="Pages\Assess\Passage\PassageDetail\ItemsLinkedToPassageLineItem.cs" />
+    <Compile Include="Pages\Assess\Passage\PassageDetail\PassageDetailDetail.cs" />
+    <Compile Include="Pages\Assess\Passage\EditPassagePage.cs" />
+    <Compile Include="Pages\Assess\Passage\PassageDetailPage.cs" />
+    <Compile Include="Pages\Assess\PrintTest\PrintHome\PrintHomeData.cs" />
+    <Compile Include="Pages\Assess\PrintTest\PrintHome\PrintHomeDetail.cs" />
+    <Compile Include="Pages\Assess\PrintTest\PrintHome\PrintHomeForm.cs" />
+    <Compile Include="Pages\Assess\PrintTest\PrintHomePage.cs" />
+    <Compile Include="Pages\Assess\Rubric\ChooseGroupingRubricDialog.cs" />
+    <Compile Include="Pages\Assess\Rubric\EditRubricAvailability\EditRubricAvailabilityData.cs" />
+    <Compile Include="Pages\Assess\Rubric\EditRubricAvailability\EditRubricAvailabilityForm.cs" />
+    <Compile Include="Pages\Assess\Rubric\EditRubric\EditRubricData.cs" />
+    <Compile Include="Pages\Assess\Rubric\EditRubric\EditRubricDetail.cs" />
+    <Compile Include="Pages\Assess\Rubric\EditRubric\EditRubricForm.cs" />
+    <Compile Include="Pages\Assess\Rubric\Components\RubricColumn.cs" />
+    <Compile Include="Pages\Assess\Rubric\Components\RubricColumnData.cs" />
+    <Compile Include="Pages\Assess\Rubric\Components\RubricDescription.cs" />
+    <Compile Include="Pages\Assess\Rubric\Components\RubricDescriptionData.cs" />
+    <Compile Include="Pages\Assess\Rubric\RubricDetail\RubricDetailData.cs" />
+    <Compile Include="Pages\Assess\Rubric\RubricDetail\RubricDetailDetail.cs" />
+    <Compile Include="Pages\Assess\Rubric\Components\RubricGroupData.cs" />
+    <Compile Include="Pages\Assess\Rubric\Components\RubricGroupLevel.cs" />
+    <Compile Include="Pages\Assess\Rubric\Components\RubricGroupType.cs" />
+    <Compile Include="Pages\Assess\Rubric\Components\RubricRow.cs" />
+    <Compile Include="Pages\Assess\Rubric\Components\RubricRowData.cs" />
+    <Compile Include="Pages\Assess\Rubric\EditRubricAvailabilityPage.cs" />
+    <Compile Include="Pages\Assess\Rubric\EditRubricPage.cs" />
+    <Compile Include="Pages\Assess\Rubric\RubricDetailPage.cs" />
+    <Compile Include="Pages\Assess\Scantron\PartnerHomePage.cs" />
+    <Compile Include="Pages\Assess\TestWindow\CreateEditTestWindow\CreateEditTestWindowData.cs" />
+    <Compile Include="Pages\Assess\TestWindow\CreateEditTestWindow\CreateEditTestWindowForm.cs" />
+    <Compile Include="Pages\Assess\TestWindow\PlanHome\PlanHomeColumn.cs" />
+    <Compile Include="Pages\Assess\TestWindow\PlanHome\PlanHomeColumnNames.cs" />
+    <Compile Include="Pages\Assess\TestWindow\PlanHome\PlanHomeData.cs" />
+    <Compile Include="Pages\Assess\TestWindow\PlanHome\PlanHomeDetail.cs" />
+    <Compile Include="Pages\Assess\TestWindow\PlanHome\PlanHomeGrid.cs" />
+    <Compile Include="Pages\Assess\TestWindow\PlanHome\PlanHomeForm.cs" />
+    <Compile Include="Pages\Assess\TestWindow\PlanHome\PlanHomeRow.cs" />
+    <Compile Include="Pages\Assess\TestWindow\ViewTestWindow\ViewTestWindowColumn.cs" />
+    <Compile Include="Pages\Assess\TestWindow\ViewTestWindow\ViewTestWindowColumnNames.cs" />
+    <Compile Include="Pages\Assess\TestWindow\ViewTestWindow\ViewTestWindowData.cs" />
+    <Compile Include="Pages\Assess\TestWindow\ViewTestWindow\ViewTestWindowDetail.cs" />
+    <Compile Include="Pages\Assess\TestWindow\ViewTestWindow\ViewTestWindowFields.cs" />
+    <Compile Include="Pages\Assess\TestWindow\ViewTestWindow\ViewTestWindowForm.cs" />
+    <Compile Include="Pages\Assess\TestWindow\ViewTestWindow\ViewTestWindowGrid.cs" />
+    <Compile Include="Pages\Assess\TestWindow\ViewTestWindow\ViewTestWindowRow.cs" />
+    <Compile Include="Pages\Assess\TestWindow\CreateEditTestWindowPage.cs" />
+    <Compile Include="Pages\Assess\TestWindow\PlanHomePage.cs" />
+    <Compile Include="Pages\Assess\TestWindow\ViewTestWindowPage.cs" />
+    <Compile Include="Pages\Assess\TestDetail\AnswerSheetSearchPage.cs" />
+    <Compile Include="Pages\Assess\TestDetail\AnswerSheetSearch\AnswerSheetSearchCriteria.cs" />
+    <Compile Include="Pages\Assess\TestDetail\AnswerSheetSearch\AnswerSheetSearchData.cs" />
+    <Compile Include="Pages\Assess\TestDetail\AnswerSheetSearch\AnswerSheetSearchDetail.cs" />
+    <Compile Include="Pages\Assess\TestDetail\AnswerSheetSearch\AnswerSheetSearchSchoolGradeForm.cs" />
+    <Compile Include="Pages\Assess\TestDetail\AnswerSheetSearch\AnswerSheetSearchSectionForm.cs" />
+    <Compile Include="Pages\Assess\TestDetail\TrackTestStatus\CompletionStatisticConfiguration.cs" />
+    <Compile Include="Pages\Assess\TestDetail\TrackTestStatus\CompletionStatisticLineItem.cs" />
+    <Compile Include="Pages\Assess\TestCreateEdit\CreateTestBySelectingStandards\CreateTestBySelectingStandardsData.cs" />
+    <Compile Include="Pages\Assess\TestCreateEdit\CreateTestBySelectingStandards\CreateTestBySelectingStandardsDetail.cs" />
+    <Compile Include="Pages\Assess\TestCreateEdit\CreateTestBySelectingStandards\CreateTestBySelectingStandardsForm.cs" />
+    <Compile Include="Pages\Assess\TestCreateEdit\Components\CreateTestData.cs" />
+    <Compile Include="Pages\Assess\TestCreateEdit\Components\CreateTestForm.cs" />
+    <Compile Include="Pages\Assess\TestCreateEdit\CreateTestManual\CreateTestManualData.cs" />
+    <Compile Include="Pages\Assess\TestCreateEdit\CreateTestManual\CreateTestManualForm.cs" />
+    <Compile Include="Pages\Assess\TestCreateEdit\Components\CreateTestModes.cs" />
+    <Compile Include="Pages\Assess\TestCreateEdit\CreateTestPortal\CreateTestPortalData.cs" />
+    <Compile Include="Pages\Assess\TestCreateEdit\CreateTestPortal\CreateTestPortalDetail.cs" />
+    <Compile Include="Pages\Assess\Schedule\EditAssignmentCourse\EditAssignmentCourseColumn.cs" />
+    <Compile Include="Pages\Assess\Schedule\EditAssignmentCourse\EditAssignmentCourseColumnNames.cs" />
+    <Compile Include="Pages\Assess\Schedule\EditAssignmentCourse\EditAssignmentCourseData.cs" />
+    <Compile Include="Pages\Assess\Schedule\EditAssignmentCourse\EditAssignmentCourseGrid.cs" />
+    <Compile Include="Pages\Assess\Schedule\EditAssignmentCourse\EditAssignmentCoursePageForm.cs" />
+    <Compile Include="Pages\Assess\Schedule\EditAssignmentCourse\EditAssignmentCourseRow.cs" />
+    <Compile Include="Pages\Assess\Schedule\EditAssignmentSchool\EditAssignmentSchoolData.cs" />
+    <Compile Include="Pages\Assess\Schedule\EditAssignmentSchool\EditAssignmentSchoolPageForm.cs" />
+    <Compile Include="Pages\Assess\Schedule\EditSchedule\EditScheduleData.cs" />
+    <Compile Include="Pages\Assess\Schedule\EditSchedule\EditSchedulePageForm.cs" />
+    <Compile Include="Pages\Assess\Schedule\EditTeacherAssignment\EditTeacherAssignmentColumn.cs" />
+    <Compile Include="Pages\Assess\Schedule\EditTeacherAssignment\EditTeacherAssignmentColumnNames.cs" />
+    <Compile Include="Pages\Assess\Schedule\EditTeacherAssignment\EditTeacherAssignmentData.cs" />
+    <Compile Include="Pages\Assess\Schedule\EditTeacherAssignment\EditTeacherAssignmentDetail.cs" />
+    <Compile Include="Pages\Assess\Schedule\EditTeacherAssignment\EditTeacherAssignmentForm.cs" />
+    <Compile Include="Pages\Assess\Schedule\EditTeacherAssignment\EditTeacherAssignmentGrid.cs" />
+    <Compile Include="Pages\Assess\Schedule\EditTeacherAssignment\EditTeacherAssignmentRow.cs" />
+    <Compile Include="Pages\Assess\Schedule\ScheduleHome\ScheduleHomeData.cs" />
+    <Compile Include="Pages\Assess\Schedule\ScheduleHome\ScheduleHomeDetail.cs" />
+    <Compile Include="Pages\Assess\Schedule\ScheduleHome\ScheduleHomeForm.cs" />
+    <Compile Include="Pages\Assess\TestCentral\TestCentralHome\TestCentralHomeColumn.cs" />
+    <Compile Include="Pages\Assess\TestCentral\TestCentralHome\TestCentralHomeColumnNames.cs" />
+    <Compile Include="Pages\Assess\TestCentral\TestCentralHome\TestCentralHomeData.cs" />
+    <Compile Include="Pages\Assess\TestCentral\TestCentralHome\TestCentralHomeDetail.cs" />
+    <Compile Include="Pages\Assess\TestCentral\TestCentralHome\TestCentralHomeFields.cs" />
+    <Compile Include="Pages\Assess\TestCentral\TestCentralHome\TestCentralHomeForm.cs" />
+    <Compile Include="Pages\Assess\TestCentral\TestCentralHome\TestCentralHomeGrid.cs" />
+    <Compile Include="Pages\Assess\TestCentral\TestCentralHome\TestCentralHomeRow.cs" />
+    <Compile Include="Pages\Assess\TestDetail\ViewTestDetails\TestContentLineItem.cs" />
+    <Compile Include="Pages\Assess\TestDetail\ViewTestDetails\TestContentLineItemData.cs" />
+    <Compile Include="Pages\Assess\TestDetail\ViewTestDetails\TestContentLineItemState.cs" />
+    <Compile Include="Pages\Assess\TestDetail\ViewTestDetails\TestDetailsAssociatedResourcesSideBar.cs" />
+    <Compile Include="Pages\Assess\TestDetail\ViewTestDetails\TestDetailsCustomizeTestSideBar.cs" />
+    <Compile Include="Pages\Assess\TestDetail\ViewTestDetails\TestDetailsScheduleInformationSideBar.cs" />
+    <Compile Include="Pages\Assess\TestDetail\ViewTestDetails\TestDetailsSideBar.cs" />
+    <Compile Include="Pages\Assess\TestDetail\ViewTestDetails\TestDetailsStatusStudentCommentsSidebar.cs" />
+    <Compile Include="Pages\Assess\TestDetail\ViewTestDetails\TestDetailsTestActionsSideBar.cs" />
+    <Compile Include="Pages\Assess\TestDetail\ViewTestDetails\TestDetailsTestPropertiesSideBar.cs" />
+    <Compile Include="Pages\Assess\TestDetail\TrackAccomodations\TrackAccomodationsData.cs" />
+    <Compile Include="Pages\Assess\TestDetail\TrackAccomodations\TrackAccomodationsForm.cs" />
+    <Compile Include="Pages\Assess\TestDetail\TrackTestStatus\TrackTestStatusDetail.cs" />
+    <Compile Include="Pages\Assess\TestDetail\UsernameGenerator\UsernameGeneratorData.cs" />
+    <Compile Include="Pages\Assess\TestDetail\UsernameGenerator\UsernameGeneratorForm.cs" />
+    <Compile Include="Pages\Assess\Schedule\ViewAssignmentSummary\ViewAssignmentSummaryColumn.cs" />
+    <Compile Include="Pages\Assess\Schedule\ViewAssignmentSummary\ViewAssignmentSummaryColumnNames.cs" />
+    <Compile Include="Pages\Assess\Schedule\ViewAssignmentSummary\ViewAssignmentSummaryData.cs" />
+    <Compile Include="Pages\Assess\Schedule\ViewAssignmentSummary\ViewAssignmentSummaryForm.cs" />
+    <Compile Include="Pages\Assess\Schedule\ViewAssignmentSummary\ViewAssignmentSummaryGrid.cs" />
+    <Compile Include="Pages\Assess\Schedule\ViewAssignmentSummary\ViewAssignmentSummaryRow.cs" />
+    <Compile Include="Pages\Assess\Schedule\ViewAssignmentSummary\ViewAssignmentSummaryType.cs" />
+    <Compile Include="Pages\Assess\TestDetail\Components\ViewDetailsLink.cs" />
+    <Compile Include="Pages\Assess\TestDetail\ViewTestDetails\ViewTestDetailsData.cs" />
+    <Compile Include="Pages\Assess\TestDetail\ViewTestDetails\ViewTestDetailsDetail.cs" />
+    <Compile Include="Pages\Assess\TestDetail\ViewTestDetails\ViewTestDetailsForm.cs" />
+    <Compile Include="Pages\Assess\TestDetail\ViewTestDetails\ViewTestDetailsSideBar.cs" />
+    <Compile Include="Pages\Assess\TestCreateEdit\CreateTestBySelectingStandardsPage.cs" />
+    <Compile Include="Pages\Assess\TestCreateEdit\CreateTestExpressPage.cs" />
+    <Compile Include="Pages\Assess\TestCreateEdit\CreateTestManualPage.cs" />
+    <Compile Include="Pages\Assess\TestCreateEdit\CreateTestPage.cs" />
+    <Compile Include="Pages\Assess\TestCreateEdit\CreateTestPortalPage.cs" />
+    <Compile Include="Pages\Assess\Schedule\EditAssignmentCoursePage.cs" />
+    <Compile Include="Pages\Assess\Schedule\EditAssignmentSchoolPage.cs" />
+    <Compile Include="Pages\Assess\Schedule\EditSchedulePage.cs" />
+    <Compile Include="Pages\Assess\Schedule\EditTeacherAssignmentPage.cs" />
+    <Compile Include="Pages\Assess\Schedule\ScheduleHomePage.cs" />
+    <Compile Include="Pages\Assess\TestCentral\TestCentralHomePage.cs" />
+    <Compile Include="Pages\Assess\TestDetail\TrackAccomodationsPage.cs" />
+    <Compile Include="Pages\Assess\TestDetail\TrackTestStatusPage.cs" />
+    <Compile Include="Pages\Assess\TestDetail\UsernameGeneratorPage.cs" />
+    <Compile Include="Pages\Assess\Schedule\ViewAssignmentSummaryPage.cs" />
+    <Compile Include="Pages\Assess\TestDetail\ViewTestDetailsPage.cs" />
+    <Compile Include="Pages\Assess\Track\TrackHomePage.cs" />
+    <Compile Include="Pages\Components\ActionsWrapper.cs" />
+    <Compile Include="Pages\Components\AlertHandler.cs" />
+    <Compile Include="Pages\Components\AutoItData.cs" />
+    <Compile Include="Pages\Components\ContentType.cs" />
+    <Compile Include="Pages\Components\Editors\Editor.cs" />
+    <Compile Include="Pages\Components\Editors\EditorDialog.cs" />
+    <Compile Include="Pages\Components\Editors\EditorDialogForm.cs" />
+    <Compile Include="Pages\Components\Editors\EditorDialogType.cs" />
+    <Compile Include="Pages\Components\Editors\InsertLinkDialog.cs" />
+    <Compile Include="Pages\Components\Editors\InsertLinkDialogData.cs" />
+    <Compile Include="Pages\Components\Editors\InsertLinkDialogForm.cs" />
+    <Compile Include="Pages\Components\Editors\TeacherInstructionEditor.cs" />
+    <Compile Include="Pages\Components\Editors\TeacherInstructionEditorForm.cs" />
+    <Compile Include="Pages\Components\ExplanationType.cs" />
+    <Compile Include="Pages\Components\ItemCentralType.cs" />
+    <Compile Include="Pages\Components\ItemType.cs" />
+    <Compile Include="Pages\Components\OpenResponseType.cs" />
+    <Compile Include="Pages\Components\QuestionAnswerData.cs" />
+    <Compile Include="Pages\Components\SearchBasicForm.cs" />
+    <Compile Include="Pages\Components\SearchResultLineItem.cs" />
+    <Compile Include="Pages\Components\SelectedStandardsGroupData.cs" />
+    <Compile Include="Pages\OnlineHelp\SchoolnetOnlineHelpPage.cs" />
+    <Compile Include="Pages\SNDriverCommands.cs" />
+    <Compile Include="Pages\SNGlobalUtilities.cs" />
+    <Compile Include="Pages\SNGrid.cs" />
+    <Compile Include="Pages\SNGridColumn.cs" />
+    <Compile Include="Pages\SNGridColumnNames.cs" />
+    <Compile Include="Pages\SNGridRow.cs" />
+    <Compile Include="Pages\Components\StandardPickerData.cs" />
+    <Compile Include="Pages\Controls\ChooseAnItemType.cs" />
+    <Compile Include="Pages\Controls\GradeLevelElement.cs" />
+    <Compile Include="Pages\Controls\PreviousPageBottomLink.cs" />
+    <Compile Include="Pages\Controls\SubjectElement.cs" />
+    <Compile Include="Pages\Controls\TestId.cs" />
+    <Compile Include="Pages\Home\Components\HomeDetail.cs" />
+    <Compile Include="Pages\Home\Components\ReviewTestLineItem.cs" />
+    <Compile Include="Pages\Home\Components\StudentHomeData.cs" />
+    <Compile Include="Pages\Home\Components\StudentHomeReviewATestForm.cs" />
+    <Compile Include="Pages\Home\Components\StudentHomeTakeATestForm.cs" />
+    <Compile Include="Pages\Home\StudentHomePage.cs" />
+    <Compile Include="Pages\Home\TeacherHomePage.cs" />
+    <Compile Include="Pages\Menus\SchoolDistrictMenu.cs" />
+    <Compile Include="Pages\PageNames.cs" />
+    <Compile Include="Pages\SchoolAndDistrict\Dashboard\DashBoardPage.cs" />
+    <Compile Include="Pages\SNComponent.cs" />
+    <Compile Include="Pages\SNDetail.cs" />
+    <Compile Include="Pages\SNFooter.cs" />
+    <Compile Include="Pages\SNForm.cs" />
+    <Compile Include="Pages\SNHeader.cs" />
+    <Compile Include="Pages\Home\HomePage.cs" />
+    <Compile Include="Pages\Login\Components\AuthenticationData.cs" />
+    <Compile Include="Pages\Login\Components\AuthenticationForm.cs" />
+    <Compile Include="Pages\Login\AuthenticationPage.cs" />
+    <Compile Include="Pages\SNSide.cs" />
+    <Compile Include="Pages\SNTab.cs" />
+    <Compile Include="Pages\SNWebPage.cs" />
+    <Compile Include="Pages\Menus\AssessmentAdminMenu.cs" />
+    <Compile Include="Pages\UserManagement\EditRole\EditRoleData.cs" />
+    <Compile Include="Pages\UserManagement\EditRole\EditRoleForm.cs" />
+    <Compile Include="Pages\UserManagement\RolesHome\RolesHomeColumn.cs" />
+    <Compile Include="Pages\UserManagement\RolesHome\RolesHomeColumnnNames.cs" />
+    <Compile Include="Pages\UserManagement\RolesHome\RolesHomeData.cs" />
+    <Compile Include="Pages\UserManagement\RolesHome\RolesHomeDetail.cs" />
+    <Compile Include="Pages\UserManagement\RolesHome\RolesHomeGrid.cs" />
+    <Compile Include="Pages\UserManagement\RolesHome\RolesHomeRow.cs" />
+    <Compile Include="Pages\UserManagement\UserManagementHome\UserManagementHomeData.cs" />
+    <Compile Include="Pages\UserManagement\UserManagementHome\UserManagementHomeDetail.cs" />
+    <Compile Include="Pages\UserManagement\UserManagementHome\UserManagementHomeForm.cs" />
+    <Compile Include="Pages\UserManagement\EditRoleMembershipPage.cs" />
+    <Compile Include="Pages\UserManagement\EditRolePage.cs" />
+    <Compile Include="Pages\UserManagement\RolesHomePage.cs" />
+    <Compile Include="Pages\UserManagement\UserManagementHomePage.cs" />
+    <Compile Include="Tests\Login\AuthenticationTest.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Workflow\Assess\AssessWorkflows.cs" />
+    <Compile Include="Workflow\Assess\CreateExpressTestWorkflows.cs" />
+    <Compile Include="Workflow\Assess\CreateItemWorkflows.cs" />
+    <Compile Include="Workflow\Assess\CreateManualTestWorkflows.cs" />
+    <Compile Include="Workflow\Assess\EditAssignmentCourseWorkflows.cs" />
+    <Compile Include="Workflow\Assess\EditScheduleWorkflows.cs" />
+    <Compile Include="Workflow\Assess\ItemCentralWorkflows.cs" />
+    <Compile Include="Workflow\Assess\OnlineTestTunnelWorkflows.cs" />
+    <Compile Include="Workflow\Assess\PassageWorkflows.cs" />
+    <Compile Include="Workflow\Assess\RubricWorkflows.cs" />
+    <Compile Include="Workflow\Assess\TestCentralWorkflows.cs" />
+    <Compile Include="Workflow\Assess\TestWindowWorkflows.cs" />
+    <Compile Include="Workflow\Assess\ViewTestDetailsWorkflows.cs" />
+    <Compile Include="Workflow\SchoolAndDistrict\SchoolDistrictWorkflows.cs" />
+    <Compile Include="Workflow\SchoolAndDistrict\StudentProfileWorkflows.cs" />
+    <Compile Include="Workflow\SignInOutWorkflows.cs" />
+    <Compile Include="Workflow\UserManagement\RolesWorkflows.cs" />
+    <Compile Include="Workflow\UserManagement\UserManagementWorkflows.cs" />
+    <Compile Include="Workflow\Workflows.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="packages.config">
+      <SubType>Designer</SubType>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Pages\Assess\ItemCentral\RubricCentral\" />
+    <Folder Include="Pages\Assess\ItemCreateEdit\v17\" />
+    <Folder Include="Pages\Assess\TestCreateEdit\CreateTestExpress\" />
+    <Folder Include="Pages\Assess\Track\Components\" />
+    <Folder Include="Specs\" />
+    <Folder Include="Steps\" />
+    <Folder Include="Tests\Admin\" />
+    <Folder Include="Tests\Assess\" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Data\Assess\ItemCentral\ItemCentralResource.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>ItemCentralResource.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Data\Assess\ItemCreateEdit\GriddedItemResource.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>GriddedItemResource.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Data\Assess\ItemCreateEdit\ItemStatisticsResource.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>ItemStatisticsResource.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Data\Assess\ItemCreateEdit\ManualQAItemPropertiesResource.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>ManualQAItemPropertiesResource.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Data\Assess\ItemCreateEdit\MatchingItemResource.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>MatchingItemResource.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Data\Assess\ItemCreateEdit\MultipleChoiceItemResource.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>MultipleChoiceItemResource.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Data\Assess\ItemCreateEdit\ItemPropertiesResource.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>ItemPropertiesResource.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Data\Assess\ItemCreateEdit\OpenResponseItemResource.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>OpenResponseItemResource.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Data\Assess\ItemCreateEdit\TrueFalseItemResource.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>TrueFalseItemResource.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Data\Assess\Passage\ManualQAPassageResource.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>ManualQAPassageResource.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Data\Assess\Passage\PassageResource.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>PassageResource.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Data\Assess\Rubric\RubricResource.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>RubricResource.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Data\Assess\Schedule\EditAssignmentCourseResource.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>EditAssignmentCourseResource.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Data\Assess\Standards\SelectedStandardsGroupResource.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>SelectedStandardsGroupResource.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Data\Assess\Standards\StandardPickerResource.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>StandardPickerResource.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Data\Assess\TestCreateEdit\CreateTestResource.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>CreateTestResource.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Data\Assess\Dashboard\ProfileHomeResource.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>ProfileHomeResource.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Data\Assess\TestCreateEdit\ManualQACreateTestResource.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>ManualQACreateTestResource.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Data\Login\AuthenticationResource.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>AuthenticationResource.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+  </ItemGroup>
+  <Choose>
+    <When Condition="'$(VisualStudioVersion)' == '10.0' And '$(IsCodedUITest)' == 'True'">
+      <ItemGroup>
+        <Reference Include="Microsoft.VisualStudio.QualityTools.CodedUITestFramework, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+          <Private>False</Private>
+        </Reference>
+        <Reference Include="Microsoft.VisualStudio.TestTools.UITest.Common, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+          <Private>False</Private>
+        </Reference>
+        <Reference Include="Microsoft.VisualStudio.TestTools.UITest.Extension, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+          <Private>False</Private>
+        </Reference>
+        <Reference Include="Microsoft.VisualStudio.TestTools.UITesting, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+          <Private>False</Private>
+        </Reference>
+      </ItemGroup>
+    </When>
+  </Choose>
+  <Import Project="$(VSToolsPath)\TeamTest\Microsoft.TestTools.targets" Condition="Exists('$(VSToolsPath)\TeamTest\Microsoft.TestTools.targets')" />
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <Import Project="$(SolutionDir)\.nuget\NuGet.targets" Condition="Exists('$(SolutionDir)\.nuget\NuGet.targets')" />
+  <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
+    <PropertyGroup>
+      <ErrorText>This project references NuGet package(s) that are missing on this computer. Enable NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=322105. The missing file is {0}.</ErrorText>
+    </PropertyGroup>
+    <Error Condition="!Exists('$(SolutionDir)\.nuget\NuGet.targets')" Text="$([System.String]::Format('$(ErrorText)', '$(SolutionDir)\.nuget\NuGet.targets'))" />
+  </Target>
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>
