@@ -76,6 +76,22 @@ namespace UnitTests.Tests.Login
             }
         }
 
+         [Test]
+        public void testClearForm1()
+        {
+            try
+            {
+                AuthenticationTest test = new AuthenticationTest();
+                test.testClearForm(this.SchoolNet());
+            }
+            catch (Exception e)
+            {
+                TestContext.WriteLine("\nInnerException:\n" + e.InnerException + "\nStackTrace:\n" + e.StackTrace, e);
+                new DriverCommands().GetScreenshotAndPageSource();
+                throw new Exception("\nInnerException:\n" + e.InnerException + "\nStackTrace:\n" + e.StackTrace, e);
+            }
+        }
+
         [Test]
         public void testInputAndSubmitForm()
         {
